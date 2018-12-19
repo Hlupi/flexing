@@ -1,26 +1,45 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Form from "./components/form";
+import RalewayRegular from "./assets/fonts/raleway-regular.ttf";
+import styled, { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: 'Raleway Regular';
+  src: url(${RalewayRegular});
+}
+body {
+  margin: 0 auto;
+  height: 100%;
+  min-width: 320px;
+}
+
+* { 
+  box-sizing: border-box;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+`;
+
+const Heading = styled.h1`
+  text-align: center;
+`;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        <GlobalStyle />
+        <Heading>Flexbox demo's</Heading>
+        <Form />
+      </>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const Heading = styled.h1`
   text-align: center;

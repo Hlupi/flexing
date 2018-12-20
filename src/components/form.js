@@ -2,22 +2,29 @@ import React from "react";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
-  font-family: "Raleway Regular";
-  min-width: 320px;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 20px 0;
   padding: 40px 0;
+  min-width: 320px;
+  max-width: 700px;
   background-color: #eee;
+  font-family: "Raleway Regular";
 
   & > h2 {
     text-align: center;
+    margin: 0;
+  }
+
+  & li {
+    list-style: none;
+  }
+
+  @media (min-width: 701px) {
+    margin: 20px auto;
   }
 `;
 
 const Form = styled.form`
-  margin: 0 auto;
   padding: 0 20px;
-  max-width: 800px;
   & > p {
     text-align: center;
   }
@@ -25,16 +32,22 @@ const Form = styled.form`
 
 const FlexOuter = styled.ul`
   & li {
+    margin: 10px 0
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
   }
 
   & > li > label {
     flex: 1 0 120px;
     max-width: 220px;
-    text-align: right;
     padding: 3px 10px 3px 0;
+    font-size: 1.2em;
+
+    &::selection {
+      background-color: pink;
+      color: #fff;
+    }
   }
 
   & > li > label + * {
@@ -42,39 +55,71 @@ const FlexOuter = styled.ul`
   }
 
   & textarea {
+    margin-top: 10px;
+    padding: 3px 5px;
     outline: none;
     resize: none;
     font-family: inherit;
+    border: 1px solid pink;
+    border-radius: 2px;
+    font-size: 0.9em;
+  }
+
+  & textarea::selection {
+      background-color: pink;
+      color: #fff;
   }
 
   & input {
     outline: none;
     font-family: inherit;
+    border: 1px solid pink;
+    font-size: 0.9em;
+    line-height: 20px;
+    border-radius: 2px;
+    padding: 3px 5px;
+  }
+
+  & input::selection {
+    background-color: pink;
+    color: #fff;
   }
 
   & select {
+    padding: 3px 5px;
     outline: none;
     font-family: inherit;
+    border: 1px solid pink;
+    font-size: 0.9em;
+    border-radius: 2px;
   }
 `;
 
 const FlexInner = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+
+  & label {
+    margin: 0 3px;
+  }
 `;
 
 const Button = styled.button`
   margin: 20px 0 20px auto;
   padding: 8px 16px;
   border: none;
-  width: 200px;
+  width: 220px;
   background-color: pink;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   border-radius: 2px;
   outline: none;
+
+  &:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, pink, lightblue);
+  }
 
   &:active {
     transform: translateY(1px);
@@ -96,7 +141,7 @@ const LotteryForm = () => {
 
           <li>
             <label>Email:</label>
-            <input type="email" name="email" placeholder="Enter your email" />
+            <input type="text" name="email" placeholder="Enter your email" />
           </li>
 
           <li>

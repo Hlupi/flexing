@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import Form from "./components/form";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+
 import RalewayRegular from "./assets/fonts/raleway-regular.ttf";
-import styled, { createGlobalStyle } from "styled-components";
+import Navbar from "./components/navbar";
+import Home from "./components/home";
+import Form from "./components/form";
+import Weather from "./components/weather";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -26,20 +31,24 @@ ul {
   padding: 0;
   margin: 0;
 }
-`;
 
-const Heading = styled.h1`
-  text-align: center;
+li {
+  list-style: none;
+}
 `;
 
 class App extends Component {
   render() {
     return (
-      <>
-        <GlobalStyle />
-        <Heading>Flexbox demo's</Heading>
-        <Form />
-      </>
+      <Router>
+        <>
+          <GlobalStyle />
+          <Navbar />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/form" component={Form} />
+          <Route exact path="/weather" component={Weather} />
+        </>
+      </Router>
     );
   }
 }

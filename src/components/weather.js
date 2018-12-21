@@ -3,19 +3,40 @@ import styled from "styled-components";
 
 import { API } from "../config/keys";
 
-const Wrapper = styled.div`
+const FlexContainer = styled.div`
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
+
+const InnerFlex = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 `;
 
 const Card = styled.div`
-  padding: 10px;
-  text-align: center;
+  margin: 10px 0;
+  padding: 20px 10px;
+  flex: 0 1 140px;
+  height: 200px;
+  border: 1px solid blue;
+  border-radius: 5px;
 
   &: hover {
     cursor: pointer;
   }
+`;
+
+const CurrentCard = styled.div`
+  margin: 50px 0;
+  padding: 20px 10px;
+  width: 300px;
+  height: 350px
+  align-self: center;
+  border: 1px solid blue;
+  border-radius: 5px;
 `;
 
 const ImgContainer = styled.div`
@@ -113,7 +134,7 @@ class Weather extends Component {
                   {weekDay} {month}
                 </span>
                 <p>{weatherTitle}</p>
-                <p>{weatherDescription}</p>
+                <p>({weatherDescription})</p>
               </>
             ) : (
               <>
@@ -145,20 +166,20 @@ class Weather extends Component {
       currentPicCode && `http://openweathermap.org/img/w/${currentPicCode}.png`;
 
     const currentCard = (
-      <Card>
+      <CurrentCard>
         <p>Current weather</p>
         <p>{currentTitle}</p>
-        <p>{currentDescription}</p>
+        <p>({currentDescription})</p>
         <img src={currentPicsrc} alt="current weather icon" />
         <p>Current temperature: {currentTemp}&deg;</p>
-      </Card>
+      </CurrentCard>
     );
 
     return (
-      <>
-        <Wrapper>{cards}</Wrapper>
+      <FlexContainer>
+        <InnerFlex>{cards}</InnerFlex>
         {currentCard}
-      </>
+      </FlexContainer>
     );
   }
 }

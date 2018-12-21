@@ -27,8 +27,7 @@ const ImgContainer = styled.div`
 
 class Weather extends Component {
   state = {
-    items: [],
-    showBack: false
+    items: []
   };
 
   componentDidMount() {
@@ -37,6 +36,11 @@ class Weather extends Component {
     )
       .then(response => response.json())
       .then(data => this.setState({ items: data.list }));
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?id=2759794&&APPID=${API}&units=metric`
+    )
+      .then(response => response.json())
+      .then(data => this.setState({ current: data }));
   }
 
   monthString = monthNumericValue => {
@@ -74,7 +78,7 @@ class Weather extends Component {
     this.setState({ item: key });
   };
 
-  hideDescription = key => {
+  hideDescription = () => {
     this.setState({ item: "" });
   };
 
@@ -105,9 +109,9 @@ class Weather extends Component {
           >
             {this.state.item && this.state.item === date.dt ? (
               <>
-                <p>
+                <span>
                   {weekDay} {month}
-                </p>
+                </span>
                 <p>{weatherTitle}</p>
                 <p>{weatherDescription}</p>
               </>
@@ -128,7 +132,34 @@ class Weather extends Component {
         );
       });
 
-    return <Wrapper>{cards}</Wrapper>;
+    // Current weather data
+    const currentTitle =
+      this.state.current && this.state.current.weather[0].main;
+    const currentDescription =
+      this.state.current && this.state.current.weather[0].description;
+    const currentTemp =
+      this.state.current && this.state.current.main.temp.toFixed(0);
+    const currentPicCode =
+      this.state.current && this.state.current.weather[0].icon;
+    const currentPicsrc =
+      currentPicCode && `http://openweathermap.org/img/w/${currentPicCode}.png`;
+
+    const currentCard = (
+      <Card>
+        <p>Current weather</p>
+        <p>{currentTitle}</p>
+        <p>{currentDescription}</p>
+        <img src={currentPicsrc} alt="current weather icon" />
+        <p>Current temperature: {currentTemp}&deg;</p>
+      </Card>
+    );
+
+    return (
+      <>
+        <Wrapper>{cards}</Wrapper>
+        {currentCard}
+      </>
+    );
   }
 }
 

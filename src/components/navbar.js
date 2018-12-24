@@ -20,6 +20,7 @@ const NavContainer = styled.nav`
       display: flex;
       align-items: center
       justify-content: center;
+
       &:hover {
         cursor pointer;
         background-color: #f5f6fa;
@@ -35,6 +36,10 @@ const Button = styled.button`
   height: 100%;
   font-family: 'Raleway Regular';
   font-size: 1.1em;
+
+  &:hover {
+    cursor pointer;
+}
 
   
   }

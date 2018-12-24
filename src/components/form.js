@@ -1,21 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Background = styled.div`
+  position: absolute;
+  width: 100vw;
+  background-image: url('/img/am-background.jpg');
+  background-size: cover;
+  background-position: top;
+  z-index: -5;
+
+  & body {
+    background-color: black;
+  }
+`;
+
 const FormContainer = styled.div`
   margin: 20px 0;
   padding: 40px 0;
   min-width: 320px;
   max-width: 700px;
-  background-color: #eee;
-  font-family: 'Raleway Regular';
+  background-color: rgba(17, 17, 17, 0.9);
+  border-radius: 3px;
+  color: #cbb79c;
+  font-family: 'Poiret One';
 
   & > h2 {
     text-align: center;
     margin: 0;
-  }
 
-  & li {
-    list-style: none;
+    &::selection {
+      background-color: pink;
+      color: #fff;
+      }
+    }
   }
 
   @media (min-width: 701px) {
@@ -27,6 +44,9 @@ const Form = styled.form`
   padding: 0 20px;
   & > p {
     text-align: center;
+    &::selection {
+      background-color: pink;
+      color: #fff;
   }
 `;
 
@@ -43,7 +63,7 @@ const FlexOuter = styled.ul`
     max-width: 220px;
     padding: 3px 10px 3px 0;
     font-size: 1.2em;
-
+   
     &::selection {
       background-color: pink;
       color: #fff;
@@ -101,6 +121,9 @@ const FlexInner = styled.ul`
 
   & label {
     margin: 0 3px;
+    &::selection {
+      background-color: pink;
+      color: #fff;
   }
 `;
 
@@ -109,7 +132,7 @@ const Button = styled.button`
   padding: 8px 16px;
   border: none;
   width: 220px;
-  background-color: pink;
+  background-color: #cbb79c;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -118,7 +141,8 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-image: linear-gradient(to right, pink, lightblue);
+    background-color: rgba(252, 179, 179, 0.7);
+    // background-image: linear-gradient(to right, pink, lightblue);
   }
 
   &:active {
@@ -128,155 +152,204 @@ const Button = styled.button`
 
 const LotteryForm = () => {
   return (
-    <FormContainer>
-      <h2>Lottery form</h2>
-      <Form>
-        <p>Complete this form and get a chance to win Arctic Monkeys tickets</p>
+    <>
+      <Background>
+        <FormContainer>
+          <h2>Lottery form</h2>
+          <Form>
+            <p>
+              Complete this form and get a chance to win Arctic Monkeys tickets
+            </p>
 
-        <FlexOuter>
-          <li>
-            <label>Name:</label>
-            <input type="text" name="name" placeholder="Enter your name" />
-          </li>
-
-          <li>
-            <label>Email:</label>
-            <input type="text" name="email" placeholder="Enter your email" />
-          </li>
-
-          <li>
-            <label>Age:</label>
-            <input
-              type="number"
-              name="age"
-              min="14"
-              max="100"
-              placeholder="Enter your age"
-            />
-          </li>
-
-          <li>
-            <label>How would you characterise yourself:</label>
-            <select defaultValue="">
-              <option value="" disabled>
-                -Choose an option-
-              </option>
-              <option value="Superfan">Superfan</option>
-              <option value="Crazy fan">Crazy fan</option>
-              <option value="Regular fan">Regular fan</option>
-              <option value="Occasional listener">Occasional listener</option>
-              <option value="Arctic monkeys who?">Arctic monkeys who?</option>
-            </select>
-          </li>
-
-          <li>
-            <label>Which monkey are you?</label>
-            <FlexInner>
+            <FlexOuter>
               <li>
-                <label>
-                  <input type="radio" id="Alex" name="type" value="Alex" />
-                  Alex Turner
-                </label>
+                <label>Name:</label>
+                <input type="text" name="name" placeholder="Enter your name" />
               </li>
 
               <li>
-                <label>
-                  <input type="radio" id="Matt" name="type" value="Matt" />
-                  Matt Helders
-                </label>
+                <label>Email:</label>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Enter your email"
+                />
               </li>
 
               <li>
-                <label>
-                  <input type="radio" id="Jamie" name="type" value="Jamie" />
-                  Jamie Cook
-                </label>
+                <label>Age:</label>
+                <input
+                  type="number"
+                  name="age"
+                  min="14"
+                  max="100"
+                  placeholder="Enter your age"
+                />
               </li>
 
               <li>
-                <label>
-                  <input type="radio" id="Nick" name="type" value="Nick" />
-                  Nick O'Malley
-                </label>
-              </li>
-            </FlexInner>
-          </li>
-
-          <li>
-            <label>True monkeys are from:</label>
-            <FlexInner>
-              <li>
-                <label>
-                  <input type="checkbox" id="2018" name="2018" value="2018" />
-                  2018
-                </label>
-              </li>
-
-              <li>
-                <label>
-                  <input type="checkbox" id="2013" name="2013" value="2013" />
-                  2013
-                </label>
+                <label>How would you characterise yourself:</label>
+                <select defaultValue="">
+                  <option value="" disabled>
+                    -Choose an option-
+                  </option>
+                  <option value="Superfan">Superfan</option>
+                  <option value="Crazy fan">Crazy fan</option>
+                  <option value="Regular fan">Regular fan</option>
+                  <option value="Occasional listener">
+                    Occasional listener
+                  </option>
+                  <option value="Arctic monkeys who?">
+                    Arctic monkeys who?
+                  </option>
+                </select>
               </li>
 
               <li>
-                <label>
-                  <input type="checkbox" id="2011" name="2011" value="2011" />
-                  2011
-                </label>
+                <label>Which monkey are you?</label>
+                <FlexInner>
+                  <li>
+                    <label>
+                      <input type="radio" id="Alex" name="type" value="Alex" />
+                      Alex Turner
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" id="Matt" name="type" value="Matt" />
+                      Matt Helders
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="radio"
+                        id="Jamie"
+                        name="type"
+                        value="Jamie"
+                      />
+                      Jamie Cook
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input type="radio" id="Nick" name="type" value="Nick" />
+                      Nick O'Malley
+                    </label>
+                  </li>
+                </FlexInner>
               </li>
 
               <li>
-                <label>
-                  <input type="checkbox" id="2009" name="2009" value="2009" />
-                  2009
-                </label>
+                <label>True monkeys are from:</label>
+                <FlexInner>
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="2018"
+                        name="2018"
+                        value="2018"
+                      />
+                      2018
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="2013"
+                        name="2013"
+                        value="2013"
+                      />
+                      2013
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="2011"
+                        name="2011"
+                        value="2011"
+                      />
+                      2011
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="2009"
+                        name="2009"
+                        value="2009"
+                      />
+                      2009
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="2007"
+                        name="2007"
+                        value="2007"
+                      />
+                      2007
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="2006"
+                        name="2006"
+                        value="2006"
+                      />
+                      2006
+                    </label>
+                  </li>
+
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="always"
+                        name="always"
+                        value="always"
+                      />
+                      All monkeys are true
+                    </label>
+                  </li>
+                </FlexInner>
               </li>
 
               <li>
-                <label>
-                  <input type="checkbox" id="2007" name="2007" value="2007" />
-                  2007
-                </label>
+                <label>Why should you be the one to win:</label>
+                <textarea
+                  name="story"
+                  rows="5"
+                  cols="30"
+                  placeholder="Write your story here..."
+                />
               </li>
 
               <li>
-                <label>
-                  <input type="checkbox" id="2006" name="2006" value="2006" />
-                  2006
-                </label>
+                <Button type="submit">Send</Button>
               </li>
-
-              <li>
-                <label>
-                  <input
-                    type="checkbox"
-                    id="always"
-                    name="always"
-                    value="always"
-                  />
-                  All monkeys are true
-                </label>
-              </li>
-            </FlexInner>
-          </li>
-
-          <li>
-            <label>Why should you be the one to win:</label>
-            <textarea
-              name="story"
-              rows="5"
-              cols="30"
-              placeholder="Write your story here..."
-            />
-          </li>
-
-          <li>
-            <Button type="submit">Send</Button>
-          </li>
-        </FlexOuter>
-      </Form>
-    </FormContainer>
+            </FlexOuter>
+          </Form>
+        </FormContainer>
+      </Background>
+    </>
   );
 };
 

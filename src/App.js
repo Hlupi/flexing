@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import RalewayRegular from './assets/fonts/raleway-regular.ttf';
+import PoiretOne from './assets/fonts/poiret-one-regular.ttf';
+import Rajdhani from './assets/fonts/rajdhani-regular.ttf';
+import Raleway from './assets/fonts/raleway-regular.ttf';
+import SairaCondensed from './assets/fonts/saira-condensed-regular.ttf';
+
 import Navbar from './components/navbar';
 import Home from './components/home';
 import Form from './components/form';
@@ -11,9 +15,25 @@ import Weather from './components/weather';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
-  font-family: 'Raleway Regular';
-  src: url(${RalewayRegular});
+  font-family: 'Raleway';
+  src: url(${Raleway});
 }
+
+@font-face {
+  font-family: 'Poiret One';
+  src: url(${PoiretOne});
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url(${Rajdhani});
+}
+
+@font-face {
+  font-family: 'Saira Condensed';
+  src: url(${SairaCondensed});
+}
+
 body {
   margin: 0 auto;
   height: 100%;

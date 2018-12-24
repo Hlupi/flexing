@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { dogAPI } from '../config/keys';
 
 const Container = styled.div`
-  margin-left: -8px;
+  margin: 8px 0 0 -8px;
   display: flex;
   flex-wrap: wrap;
 `;

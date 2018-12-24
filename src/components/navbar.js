@@ -34,19 +34,13 @@ const Button = styled.button`
   background-color: inherit;
   color: #353b48;
   height: 100%;
-  font-family: 'Raleway Regular';
+  font-family: 'Raleway';
   font-size: 1.1em;
 
   &:hover {
     cursor pointer;
-}
-
-  
   }
 
-  &:active {
-      transform: translateY(1px);
-  }
 `;
 
 const Navbar = props => {
@@ -54,17 +48,17 @@ const Navbar = props => {
   return (
     <NavContainer>
       <ul>
-        <li>
-          <Button onClick={() => history.push('/')}>Main</Button>
+        <li onClick={() => history.push('/')}>
+          <Button>Main</Button>
         </li>
-        <li>
-          <Button onClick={() => history.push('/form')}>Form</Button>
+        <li onClick={() => history.push('/form')}>
+          <Button>Form</Button>
         </li>
-        <li>
-          <Button onClick={() => history.push('/gallery')}>Gallery</Button>
+        <li onClick={() => history.push('/gallery')}>
+          <Button>Gallery</Button>
         </li>
-        <li>
-          <Button onClick={() => history.push('/weather')}>Weather</Button>
+        <li onClick={() => history.push('/weather')}>
+          <Button>Weather</Button>
         </li>
       </ul>
     </NavContainer>

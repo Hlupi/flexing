@@ -45,7 +45,7 @@ class Gallery extends Component {
 
   componentDidMount() {
     fetch(
-      `https://api.thedogapi.com/v1/images/search?size=med&has_breeds=true&limit=10`,
+      `https://api.thedogapi.com/v1/images/search?size=full&has_breeds=true&limit=10`,
       {
         headers: {
           'content-type': 'application/json',

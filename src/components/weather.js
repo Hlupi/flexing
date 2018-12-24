@@ -7,36 +7,77 @@ const FlexContainer = styled.div`
   margin: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
+  font-family: 'Rajdhani';
+  background-image: url('https://images.unsplash.com/photo-1529913666176-6149920030b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-size: cover;
+  background-position: bottom;
+
+  @media (min-height: 1024px) {
+    height: 100vh;
+  }
 `;
 
 const InnerFlex = styled.div`
+  margin-bottom: 50px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+
+  @media (orientation: landscape) {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 `;
 
 const Card = styled.div`
   margin: 10px 0;
   padding: 20px 10px;
-  flex: 0 1 140px;
-  height: 200px;
-  border: 1px solid blue;
+  width: 150px;
+  height: 175px;
   border-radius: 5px;
+  background-color: rgba(120, 125, 132, 0.8);
+  color: #f2f4f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (orientation: landscape) {
+    margin: 10px 5px;
+  }
 
   &: hover {
     cursor: pointer;
+    background-color: rgba(120, 125, 132, 0.5);
   }
 `;
 
+const CureentHeading = styled.span`
+  font-size: 1.4em;
+  color: #f2f4f7;
+`;
+
 const CurrentCard = styled.div`
-  margin: 50px 0;
+  margin: 20px 0;
   padding: 20px 10px;
   width: 300px;
   height: 350px
   align-self: center;
-  border: 1px solid blue;
+  background-color: rgba(120, 125, 132, 0.8);
+  color: #f2f4f7;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;;
+  
 `;
 
 const ImgContainer = styled.div`
@@ -115,7 +156,7 @@ class Weather extends Component {
       dates &&
       dates.map(date => {
         const day = new Date(date.dt * 1000);
-        const weekDay = day.getUTCDate();
+        const dayDate = day.getUTCDate();
         const month = this.monthString(day.getUTCMonth());
         const weatherTitle = date.weather[0].main;
         const weatherDescription = date.weather[0].description;
@@ -131,15 +172,17 @@ class Weather extends Component {
             {this.state.item && this.state.item === date.dt ? (
               <>
                 <span>
-                  {weekDay} {month}
+                  {dayDate} {month}
                 </span>
-                <p>{weatherTitle}</p>
-                <p>({weatherDescription})</p>
+                <span>{weatherTitle}</span>
+                <span>
+                  (<i>{weatherDescription}</i>)
+                </span>
               </>
             ) : (
               <>
                 <span>
-                  {weekDay} {month}
+                  {dayDate} {month}
                 </span>
                 <ImgContainer>
                   <img src={weatherPicsrc} alt="weather icon" />
@@ -154,6 +197,11 @@ class Weather extends Component {
       });
 
     // Current weather data
+    const currentDay =
+      this.state.current && new Date(this.state.current.dt * 1000);
+    const currentDate = this.state.current && currentDay.getUTCDate();
+    const currentMonth =
+      currentDay && this.monthString(currentDay.getUTCMonth());
     const currentTitle =
       this.state.current && this.state.current.weather[0].main;
     const currentDescription =
@@ -167,17 +215,25 @@ class Weather extends Component {
 
     const currentCard = (
       <CurrentCard>
-        <p>Current weather</p>
-        <p>{currentTitle}</p>
-        <p>({currentDescription})</p>
-        <img src={currentPicsrc} alt="current weather icon" />
-        <p>Current temperature: {currentTemp}&deg;</p>
+        <span>
+          {currentDate} {currentMonth}
+        </span>
+        <span>{currentTitle}</span>
+        <span>
+          (<i>{currentDescription}</i>)
+        </span>
+        <ImgContainer>
+          <img src={currentPicsrc} alt="current weather icon" />
+        </ImgContainer>
+
+        <span>Current temperature: {currentTemp}&deg;</span>
       </CurrentCard>
     );
 
     return (
       <FlexContainer>
         <InnerFlex>{cards}</InnerFlex>
+        <CureentHeading>~ Current weather ~</CureentHeading>
         {currentCard}
       </FlexContainer>
     );

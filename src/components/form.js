@@ -82,7 +82,7 @@ const FlexOuter = styled.ul`
     font-family: inherit;
     border: 1px solid pink;
     border-radius: 2px;
-    font-size: 0.9em;
+    font-size: 1em;
   }
 
   & textarea::selection {
@@ -94,7 +94,7 @@ const FlexOuter = styled.ul`
     outline: none;
     font-family: inherit;
     border: 1px solid pink;
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 20px;
     border-radius: 2px;
     padding: 3px 5px;
@@ -110,7 +110,7 @@ const FlexOuter = styled.ul`
     outline: none;
     font-family: inherit;
     border: 1px solid pink;
-    font-size: 0.9em;
+    font-size: 1em;
     border-radius: 2px;
   }
 `;

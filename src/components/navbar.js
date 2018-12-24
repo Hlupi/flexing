@@ -1,11 +1,10 @@
-import React from "react";
-import { withRouter } from "react-router";
-import styled from "styled-components";
+import React from 'react';
+import { withRouter } from 'react-router';
+import styled from 'styled-components';
 
 const NavContainer = styled.nav`
-  padding: 5px;
   height: 50px;
-  background-color: #eee;
+  background-color: #dcdde1;
   display: flex;
 
   & ul {
@@ -17,26 +16,27 @@ const NavContainer = styled.nav`
     align-items: stretch;
 
     & li {
+      flex: 1 0 auto;
       display: flex;
-      align-items: center;
+      align-items: center
+      justify-content: center;
+      &:hover {
+        cursor pointer;
+        background-color: #f5f6fa;
     }
   }
 `;
 
 const Button = styled.button`
-
   border: none;
   outline: none;
-  background-color: #eee;
+  background-color: inherit;
+  color: #353b48;
   height: 100%;
   font-family: 'Raleway Regular';
   font-size: 1.1em;
-  border-radius: 14px;
 
-  &:hover {
-    cursor pointer;
-    background-color: #000;
-    color: #fff;
+  
   }
 
   &:active {
@@ -50,16 +50,16 @@ const Navbar = props => {
     <NavContainer>
       <ul>
         <li>
-          <Button onClick={() => history.push("/")}>Main</Button>
+          <Button onClick={() => history.push('/')}>Main</Button>
         </li>
         <li>
-          <Button onClick={() => history.push("/form")}>Form</Button>
+          <Button onClick={() => history.push('/form')}>Form</Button>
         </li>
         <li>
-          <Button>Photo's</Button>
+          <Button onClick={() => history.push('/gallery')}>Gallery</Button>
         </li>
         <li>
-          <Button onClick={() => history.push("/weather")}>Weather</Button>
+          <Button onClick={() => history.push('/weather')}>Weather</Button>
         </li>
       </ul>
     </NavContainer>

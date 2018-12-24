@@ -1,12 +1,13 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 
-import RalewayRegular from "./assets/fonts/raleway-regular.ttf";
-import Navbar from "./components/navbar";
-import Home from "./components/home";
-import Form from "./components/form";
-import Weather from "./components/weather";
+import RalewayRegular from './assets/fonts/raleway-regular.ttf';
+import Navbar from './components/navbar';
+import Home from './components/home';
+import Form from './components/form';
+import Gallery from './components/gallery';
+import Weather from './components/weather';
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -46,6 +47,7 @@ class App extends Component {
           <Navbar />
           <Route exact path="/home" component={Home} />
           <Route exact path="/form" component={Form} />
+          <Route exact path="/gallery" component={Gallery} />
           <Route exact path="/weather" component={Weather} />
         </>
       </Router>

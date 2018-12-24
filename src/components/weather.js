@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { API } from "../config/keys";
+import { weatherAPI } from '../config/keys';
 
 const FlexContainer = styled.div`
   margin: 20px;
@@ -53,12 +53,12 @@ class Weather extends Component {
 
   componentDidMount() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?id=2759794&&APPID=${API}&units=metric`
+      `http://api.openweathermap.org/data/2.5/forecast?id=2759794&&APPID=${weatherAPI}&units=metric`
     )
       .then(response => response.json())
       .then(data => this.setState({ items: data.list }));
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?id=2759794&&APPID=${API}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?id=2759794&&APPID=${weatherAPI}&units=metric`
     )
       .then(response => response.json())
       .then(data => this.setState({ current: data }));
@@ -67,31 +67,31 @@ class Weather extends Component {
   monthString = monthNumericValue => {
     switch (monthNumericValue) {
       case 0:
-        return "Jan";
+        return 'Jan';
       case 1:
-        return "Feb";
+        return 'Feb';
       case 2:
-        return "Mar";
+        return 'Mar';
       case 3:
-        return "Apr";
+        return 'Apr';
       case 4:
-        return "Mai";
+        return 'Mai';
       case 5:
-        return "Jun";
+        return 'Jun';
       case 6:
-        return "Jul";
+        return 'Jul';
       case 7:
-        return "Aug";
+        return 'Aug';
       case 8:
-        return "Sep";
+        return 'Sep';
       case 9:
-        return "Oct";
+        return 'Oct';
       case 10:
-        return "Nov";
+        return 'Nov';
       case 11:
-        return "Dec";
+        return 'Dec';
       default:
-        return "";
+        return '';
     }
   };
 
@@ -100,14 +100,14 @@ class Weather extends Component {
   };
 
   hideDescription = () => {
-    this.setState({ item: "" });
+    this.setState({ item: '' });
   };
 
   render() {
     const dates =
       this.state.items &&
       this.state.items.filter(
-        it => it.dt_txt.substring(10).indexOf("12:00:00") > -1
+        it => it.dt_txt.substring(10).indexOf('12:00:00') > -1
       );
 
     // RENDER CARDS

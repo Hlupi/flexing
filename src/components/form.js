@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const FormContainer = styled.div`
   margin: 20px 0;
@@ -7,7 +7,7 @@ const FormContainer = styled.div`
   min-width: 320px;
   max-width: 700px;
   background-color: #eee;
-  font-family: "Raleway Regular";
+  font-family: 'Raleway Regular';
 
   & > h2 {
     text-align: center;
@@ -129,7 +129,7 @@ const Button = styled.button`
 const LotteryForm = () => {
   return (
     <FormContainer>
-      <h2>Loterry form</h2>
+      <h2>Lottery form</h2>
       <Form>
         <p>Complete this form and get a chance to win Arctic Monkeys tickets</p>
 

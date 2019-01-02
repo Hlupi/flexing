@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Background = styled.div`
   position: absolute;
   width: 100vw;
-  background-image: url('/img/am-background.jpg');
+  height: 100vh;
+  background-image: url("/img/am-background.jpg");
   background-size: cover;
   background-position: top;
   z-index: -5;

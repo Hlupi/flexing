@@ -1,6 +1,6 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-import styled from 'styled-components';
+import React from "react";
+import { withRouter } from "react-router";
+import styled from "styled-components";
 
 const NavContainer = styled.nav`
   height: 50px;
@@ -8,7 +8,6 @@ const NavContainer = styled.nav`
   display: flex;
 
   & ul {
-    margin: 0 20px;
     height: 100%;
     flex: 1 0 auto;
     display: flex;
@@ -48,16 +47,16 @@ const Navbar = props => {
   return (
     <NavContainer>
       <ul>
-        <li onClick={() => history.push('/')}>
+        <li onClick={() => history.push("/")}>
           <Button>Main</Button>
         </li>
-        <li onClick={() => history.push('/form')}>
+        <li onClick={() => history.push("/form")}>
           <Button>Form</Button>
         </li>
-        <li onClick={() => history.push('/gallery')}>
+        <li onClick={() => history.push("/gallery")}>
           <Button>Gallery</Button>
         </li>
-        <li onClick={() => history.push('/weather')}>
+        <li onClick={() => history.push("/weather")}>
           <Button>Weather</Button>
         </li>
       </ul>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+import DropdownContainer from "./dropdown-container";
+
 import { weatherAPI } from "../config/keys";
 
 const FlexContainer = styled.div`
@@ -232,6 +234,7 @@ class Weather extends Component {
 
     return (
       <FlexContainer>
+        <DropdownContainer />
         <InnerFlex>{cards}</InnerFlex>
         <CureentHeading>~ Current weather ~</CureentHeading>
         {currentCard}

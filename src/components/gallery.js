@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import { dogAPI } from '../config/keys';
+import { dogAPI } from "../config/keys";
 
 const Container = styled.div`
   margin: 8px 0 0 -8px;
@@ -45,11 +45,11 @@ class Gallery extends Component {
 
   componentDidMount() {
     fetch(
-      `https://api.thedogapi.com/v1/images/search?size=full&has_breeds=true&limit=10`,
+      `https://api.thedogapi.com/v1/images/search?size=full&has_breeds=true&limit=40`,
       {
         headers: {
-          'content-type': 'application/json',
-          'x-api-key': `${dogAPI}`
+          "content-type": "application/json",
+          "x-api-key": `${dogAPI}`
         }
       }
     )

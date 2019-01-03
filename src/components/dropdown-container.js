@@ -6,37 +6,37 @@ class DropdownContainer extends Component {
     location: [
       {
         id: 0,
-        title: "New York",
+        title: "Amsterdam",
         selected: false,
         key: "location"
       },
       {
         id: 1,
-        title: "Dublin",
+        title: "Berlin",
         selected: false,
         key: "location"
       },
       {
         id: 2,
-        title: "California",
+        title: "Brussels",
         selected: false,
         key: "location"
       },
       {
         id: 3,
-        title: "Istanbul",
+        title: "Dublin",
         selected: false,
         key: "location"
       },
       {
         id: 4,
-        title: "Izmir",
+        title: "London",
         selected: false,
         key: "location"
       },
       {
         id: 5,
-        title: "Oslo",
+        title: "Paris",
         selected: false,
         key: "location"
       }

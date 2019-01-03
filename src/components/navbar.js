@@ -13,6 +13,7 @@ const NavContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    flex-wrap: wrap;
 
     & li {
       flex: 1 1 auto;
@@ -65,6 +66,9 @@ const Navbar = props => {
         </li>
         <li onClick={() => history.push("/landing")}>
           <Button>Landing</Button>
+        </li>
+        <li onClick={() => history.push("/sliding")}>
+          <Button>Slideshaw</Button>
         </li>
       </ul>
     </NavContainer>

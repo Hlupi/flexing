@@ -9,7 +9,7 @@ const FlexContainer = styled.div`
   margin: 0 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
   font-family: "Rajdhani";
   background-image: url("https://images.unsplash.com/photo-1529913666176-6149920030b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");

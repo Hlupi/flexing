@@ -41,6 +41,14 @@ const Card = styled.div`
     flex: 1 20%;
   }
 
+  @media (max-width: 412px) {
+    flex: 1 45%;
+  }
+
+  @media (max-width: 350px) {
+    flex: 1 75%;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;

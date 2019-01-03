@@ -9,13 +9,13 @@ const NavContainer = styled.nav`
 
   & ul {
     height: 100%;
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 
     & li {
-      flex: 1 0 auto;
+      flex: 1 1 auto;
       display: flex;
       align-items: center
       justify-content: center;
@@ -35,6 +35,10 @@ const Button = styled.button`
   height: 100%;
   font-family: 'Raleway';
   font-size: 1.1em;
+
+  @media( max-width: 350px) {
+    font-size: 1em;
+  }
 
   &:hover {
     cursor pointer;
@@ -58,6 +62,9 @@ const Navbar = props => {
         </li>
         <li onClick={() => history.push("/weather")}>
           <Button>Weather</Button>
+        </li>
+        <li onClick={() => history.push("/landing")}>
+          <Button>Landing</Button>
         </li>
       </ul>
     </NavContainer>

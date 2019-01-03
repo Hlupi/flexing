@@ -10,8 +10,12 @@ const Background = styled.div`
   background-position: top;
   z-index: -5;
 
-  & body {
-    background-color: black;
+  @media (max-width: 450px) and (orientation: portrait) {
+    height: auto;
+  }
+
+  @media (max-width: 825px) and (orientation: landscape) {
+    height: auto;
   }
 `;
 

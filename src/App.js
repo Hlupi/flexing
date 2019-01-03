@@ -12,6 +12,7 @@ import Home from "./components/home";
 import Form from "./components/form";
 import Gallery from "./components/gallery";
 import Weather from "./components/weather";
+import LandingPage from "./components/landing-page";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -69,6 +70,7 @@ class App extends Component {
           <Route exact path="/form" component={Form} />
           <Route exact path="/gallery" component={Gallery} />
           <Route exact path="/weather" component={Weather} />
+          <Route exact path="/landing" component={LandingPage} />
         </>
       </Router>
     );

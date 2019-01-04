@@ -7,6 +7,10 @@ const NavContainer = styled.nav`
   background-color: #dcdde1;
   display: flex;
 
+  @media (max-width: 700px) {
+    height: 100px;
+  }
+
   & ul {
     height: 100%;
     flex: 1 1 auto;
@@ -36,6 +40,7 @@ const Button = styled.button`
   height: 100%;
   font-family: 'Raleway';
   font-size: 1.1em;
+  text-align: center;
 
   @media( max-width: 350px) {
     font-size: 1em;

@@ -6,9 +6,22 @@ import LeftArrow from "./arrow-left";
 import RightArrow from "./arrow-rigth";
 
 const Slider = styled.div`
+  margin: 100px auto;
   position: relative;
+  width: 800px;
   height: 700px;
-  width: 700px;
+
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
+const SlideWrapper = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform: ${props =>
+    props.position ? `translateX(${props.position}px)` : "translateX(0px)"};
+  transition: transform ease-out 0.45s;
 `;
 
 class Slideshow extends Component {
@@ -23,7 +36,8 @@ class Slideshow extends Component {
       "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
       "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
     ],
-    currentIndex: 0
+    currentIndex: 0,
+    translateValue: 0
   };
 
   goToPrevSlide = () => {
@@ -35,19 +49,37 @@ class Slideshow extends Component {
   };
 
   goToNextSlide = () => {
+    if (this.state.currentIndex === this.state.images.length - 1) {
+      return this.setState({
+        currentIndex: 0,
+        translateValue: 0
+      });
+    }
+
     this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1
+      currentIndex: prevState.currentIndex + 1,
+      translateValue: prevState.translateValue + -this.slideWidth()
     }));
   };
 
+  slideWidth = () => {
+    console.log(this.slide.current.clientWidth);
+    return this.slide.current.clientWidth;
+    // return this.slide.current.refs.slide.clientWidth;
+  };
+
+  slide = React.createRef();
+
   render() {
-    const renderSlides = this.state.images.map((img, index) => {
-      return <Slide key={index} img={img} />;
-    });
+    const renderSlides = this.state.images.map((img, index) => (
+      <Slide ruf={this.slide} key={index} img={img} />
+    ));
     return (
       <Slider>
-        <h1>Imma slide you real good</h1>
-        {renderSlides}
+        <SlideWrapper position={this.state.translateValue}>
+          {renderSlides}
+        </SlideWrapper>
+
         <LeftArrow goToPrevSlide={this.goToPrevSlide} />
         <RightArrow goToNextSlide={this.goToNextSlide} />
       </Slider>

@@ -75,6 +75,9 @@ const Navbar = props => {
         <li onClick={() => history.push("/sliding")}>
           <Button>Slideshaw</Button>
         </li>
+        <li onClick={() => history.push("/calculate")}>
+          <Button>Calculator</Button>
+        </li>
       </ul>
     </NavContainer>
   );

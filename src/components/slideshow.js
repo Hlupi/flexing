@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 import Slide from "./slide";
-import LeftArrow from "./arrow-left";
-import RightArrow from "./arrow-rigth";
+import LeftArrow from "./slideshow-arrow-left";
+import RightArrow from "./slideshow-arrow-rigth";
 
 const Slider = styled.div`
   margin: 100px auto;

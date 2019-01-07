@@ -81,6 +81,9 @@ const Navbar = props => {
         <li onClick={() => history.push("/social")}>
           <Button>Social Card</Button>
         </li>
+        <li onClick={() => history.push("/carousel")}>
+          <Button>Carousel</Button>
+        </li>
       </ul>
     </NavContainer>
   );

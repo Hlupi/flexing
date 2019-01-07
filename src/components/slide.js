@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const SlideContainer = styled.div`
   height: 100%;
-  width: 100%;
+  width: ${props => `${props.width}%`};
   background-image: ${props => (props.img ? `url(${props.img})` : null)};
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,7 +13,13 @@ const SlideContainer = styled.div`
 
 class Slide extends Component {
   render() {
-    return <SlideContainer ref={this.props.ruf} img={this.props.img} />;
+    return (
+      <SlideContainer
+        width={100 / this.props.siblings}
+        ref={this.props.ruf}
+        img={this.props.img}
+      />
+    );
   }
 }
 

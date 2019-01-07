@@ -1,37 +1,44 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Slide from "./slide";
 import LeftArrow from "./slideshow-arrow-left";
 import RightArrow from "./slideshow-arrow-rigth";
 
 const Slider = styled.div`
   margin: 100px auto;
   position: relative;
-  width: 900px;
   height: 700px;
-
   overflow: hidden;
   white-space: nowrap;
 `;
 
-const SlideWrapper = styled.div`
-  position: relative;
+const SlideContainer = styled.div`
+  display: flex;
   height: 100%;
-  width: ${props => `${props.width}%`};
+  width: 500%
   transform: ${props =>
     props.position ? `translateX(${props.position}px)` : "translateX(0px)"};
   transition: transform ease-out 0.45s;
 `;
 
-class Slideshow extends Component {
+const Slide = styled.div`
+  height: 100%;
+  width: 100%;
+  background-image: ${props => (props.img ? `url(${props.img})` : null)};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  display: inline-block;
+`;
+
+class Carousel extends Component {
   state = {
     images: [
-      "https://images.unsplash.com/photo-1527195694714-9b939fac3432?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-      "https://images.unsplash.com/photo-1517848568502-d03fa74e1964?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-      "https://images.unsplash.com/photo-1466781783364-36c955e42a7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
-      "https://images.unsplash.com/photo-1536882240095-0379873feb4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
-      "https://images.unsplash.com/photo-1425736317462-a103b1303a35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+      "https://images.unsplash.com/photo-1530482054429-cc491f61333b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
+      "https://images.unsplash.com/photo-1463936575829-25148e1db1b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1090&q=80",
+      "https://images.unsplash.com/photo-1516481605912-d34c1411504c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "https://images.unsplash.com/photo-1508843731797-991810e0b977?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+      "https://images.unsplash.com/photo-1537799261701-0cf2e54a840b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
     ],
     currentIndex: 0,
     translateValue: 0
@@ -61,33 +68,26 @@ class Slideshow extends Component {
   };
 
   slideWidth = () => {
-    return this.slide.current.clientWidth;
+    return this.slidey.current.clientWidth;
   };
 
-  slide = React.createRef();
+  slidey = React.createRef();
 
   render() {
     const renderSlides = this.state.images.map((img, index) => (
-      <Slide
-        siblings={this.state.images.length}
-        ruf={this.slide}
-        key={index}
-        img={img}
-      />
+      <Slide ref={this.slidey} img={img} key={index} alt="cactus" />
     ));
+    this.slidey.current && console.log(this.slidey.current.clientWidth);
     return (
       <Slider>
-        <SlideWrapper
-          width={this.state.images.length * 100}
-          position={this.state.translateValue}
-        >
+        <SlideContainer position={this.state.translateValue}>
           {renderSlides}
-        </SlideWrapper>
-
+        </SlideContainer>
         <LeftArrow goToPrevSlide={this.goToPrevSlide} />
         <RightArrow goToNextSlide={this.goToNextSlide} />
       </Slider>
     );
   }
 }
-export default Slideshow;
+
+export default Carousel;

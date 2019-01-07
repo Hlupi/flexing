@@ -16,6 +16,7 @@ import LandingPage from "./components/landing-page";
 import Slideshow from "./components/slideshow";
 import Calculator from "./components/calculator";
 import SocialCard from "./components/social";
+import Carousel from "./components/carousel";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -77,6 +78,7 @@ class App extends Component {
           <Route exact path="/sliding" component={Slideshow} />
           <Route exact path="/calculate" component={Calculator} />
           <Route exact path="/social" component={SocialCard} />
+          <Route exact path="/carousel" component={Carousel} />
         </>
       </Router>
     );

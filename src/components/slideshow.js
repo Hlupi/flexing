@@ -63,7 +63,6 @@ class Slideshow extends Component {
   };
 
   slideWidth = () => {
-    console.log(this.slide.current.clientWidth);
     return this.slide.current.clientWidth;
     // return this.slide.current.refs.slide.clientWidth;
   };

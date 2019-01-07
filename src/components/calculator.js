@@ -6,21 +6,24 @@ import Input from "./calc-input";
 import { Button, ClearButton } from "./calc-button";
 
 const Container = styled.div`
+  margin: 50px auto;
+  padding: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
+  font-family: Rajdhani;
+  max-width: 400px;
 `;
 
 const Wrapper = styled.div`
-  width: 400px;
-  height: 600px;
+  border: 1px solid #31353a;
+  border-radius: 5px;
+  flex: 1 1 100%;
 `;
 
 const Row = styled.div`
   display: flex;
-  width: 100%;
+  flex: 1;
 `;
 
 class Calculator extends Component {

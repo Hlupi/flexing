@@ -7,10 +7,10 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.4em;
-  background-color: ${props => (props.operator ? "#e0e1e6" : "#fe9241")};
-  color: ${props => (props.operator ? "#888" : "#fff")};
+  background-color: ${props => (props.operator ? "#7d8187" : "#fe9241")};
+  color: #fff;
   flex: 1;
-  outline: 1px solid #888;
+  outline: 1px solid #40454c;
 `;
 
 const Clear = styled.div`
@@ -19,10 +19,10 @@ const Clear = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.4em;
-  background-color: #c5c3cd;
-  color: #000;
+  background-color: #7d8187;
+  color: #fff;
   flex: 1;
-  outline: 1px solid #888;
+  border-top: 1px solid #40454c;
 `;
 
 const isOperator = val => {
@@ -31,7 +31,7 @@ const isOperator = val => {
 
 export const Button = props => (
   <Wrapper
-    operator={isOperator(props.children)}
+    operator={isOperator(props.children) ? 1 : 0}
     onClick={() => props.handleClick(props.children)}
   >
     {props.children}

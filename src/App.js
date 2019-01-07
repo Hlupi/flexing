@@ -15,6 +15,7 @@ import Weather from "./components/weather";
 import LandingPage from "./components/landing-page";
 import Slideshow from "./components/slideshow";
 import Calculator from "./components/calculator";
+import SocialCard from "./components/social";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -75,6 +76,7 @@ class App extends Component {
           <Route exact path="/landing" component={LandingPage} />
           <Route exact path="/sliding" component={Slideshow} />
           <Route exact path="/calculate" component={Calculator} />
+          <Route exact path="/social" component={SocialCard} />
         </>
       </Router>
     );

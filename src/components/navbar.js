@@ -78,6 +78,9 @@ const Navbar = props => {
         <li onClick={() => history.push("/calculate")}>
           <Button>Calculator</Button>
         </li>
+        <li onClick={() => history.push("/social")}>
+          <Button>Social Card</Button>
+        </li>
       </ul>
     </NavContainer>
   );

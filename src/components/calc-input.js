@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const InputField = styled.div`
-  height: 4em;
+  height: 100px;
   display: flex;
+  padding-right: 10px;
   justify-content: flex-end;
-  align-items: center;
-  font-size: 1.4em;
-  background-color: #000;
+  align-items: flex-end;
+  font-size: 3.5em;
+  background-color: #4d535b;
+
   color: #fff;
-  padding: 2.5em;
-  outline: 1px solid #888;
 `;
 
 const Input = props => <InputField>{props.input}</InputField>;
